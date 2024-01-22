@@ -145,20 +145,6 @@ function Coin() {
     const { state } = useLocation() as RouteState;
     const chartMatch = useMatch("/:coinId/chart");
     const priceMatch = useMatch("/:coinId/price");
-    // const [loading, setLoading] = useState(true);
-    // const [info, setInfo] = useState<InfoData>();
-    // const [priceInfo, setPriceInfo] = useState<PriceData>();
-    // console.log(priceMatch);
-    // useEffect(() => {
-    //     (async () => {
-    //         const infoData = await (await fetch(`https://api.coinpaprika.com/v1/coins/${coinId}`)).json();
-    //         const priceData = await (await fetch(`https://api.coinpaprika.com/v1/tickers/${coinId}`)).json();
-    //         setInfo(infoData);
-    //         setPriceInfo(priceData);
-    //         setLoading(false);
-    //     })();
-    // }, [coinId]);
-
     const { isLoading: infoLoading, data: infoData } = useQuery<InfoData>(["info", String(coinId)], () =>
         fetchCoinInfo(String(coinId))
     );
