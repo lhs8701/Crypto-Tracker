@@ -34,6 +34,9 @@ function Chart() {
                     type="line"
                     series={[{ name: "sales", data: data?.map((price) => parseFloat(price.close)) ?? [] }]}
                     options={{
+                        theme: {
+                            mode: isDark ? "dark" : "light",
+                        },
                         chart: {
                             height: 300,
                             width: 500,
